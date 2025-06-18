@@ -12,7 +12,7 @@ import javax.annotation.Nonnull;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class BrowserstackDriver implements WebDriverProvider {
+public class BrowserStackDriver implements WebDriverProvider {
 
     private static final BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class);
 

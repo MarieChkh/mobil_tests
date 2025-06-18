@@ -6,7 +6,7 @@ import org.aeonbits.owner.ConfigFactory;
 import static io.restassured.RestAssured.given;
 
 
-public class Browserstack {
+public class BrowserStack {
 
     private static final BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class);
 
@@ -14,7 +14,7 @@ public class Browserstack {
         String url = String.format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);
 
         return given()
-                .auth().basic("bsuser_4p3fUw", "KkwWbpftnyuByJ9s7L8d")
+                .auth().basic(config.user(), config.key())
                 .get(url)
                 .then()
                 .log().status()
