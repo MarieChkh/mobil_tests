@@ -7,15 +7,13 @@ repositories {
     mavenCentral()
 }
 
-def aspectjWeaverVersion = "1.9.24",
+def aspectjWeaverVersion = "1.9.22",
     selenideVersion = "6.13.0",
-    restAssuredVersion = "5.5.5",
-    allureVersion = "2.29.1",
-    junitVersion = "5.13.0",
-    slf4jVersion = "2.0.17",
-    ownerVersion = "1.0.12",
-    appiumVersion = "8.3.0"
-
+    restAssuredVersion = "5.3.0",
+    allureVersion = "2.21.0",
+    junitVersion = "5.9.3",
+    slf4jVersion = "2.0.7",
+    ownerVersion = "1.0.12"
 
 allure {
     report {
@@ -34,13 +32,14 @@ allure {
 dependencies {
     testImplementation(
             "org.aspectj:aspectjweaver:$aspectjWeaverVersion",
-            "com.codeborne:selenide:$selenideVersion",
+            'com.codeborne:selenide:' + selenideVersion,
             "io.qameta.allure:allure-selenide:$allureVersion",
-            "io.appium:java-client:$appiumVersion",
-            "io.rest-assured:rest-assured:$restAssuredVersion",
+            "io.appium:java-client:8.3.0",
+            'io.rest-assured:rest-assured:' + restAssuredVersion,
             "org.junit.jupiter:junit-jupiter:$junitVersion",
             "org.slf4j:slf4j-simple:$slf4jVersion",
-            "org.aeonbits.owner:owner:$ownerVersion")
+            "org.aeonbits.owner:owner:$ownerVersion"
+    )
     testRuntimeOnly(
             "org.junit.platform:junit-platform-launcher")
 }
@@ -55,13 +54,25 @@ tasks.withType(Test).configureEach {
         }
     }
 }
-
 tasks.register('android', Test) {
-    useJUnitPlatform()
+    useJUnitPlatform {
+        includeTags 'android'
+    }
     systemProperty 'platform', 'android'
+    systemProperty 'deviceHost', 'browserstack'
 }
 
 tasks.register('ios', Test) {
-    useJUnitPlatform()
+    useJUnitPlatform {
+        includeTags 'ios'
+    }
     systemProperty 'platform', 'ios'
+    systemProperty 'deviceHost', 'browserstack'
 }
+    tasks.register('android_local', Test) {
+        useJUnitPlatform {
+            includeTags 'android_local'
+        }
+        systemProperty 'platform', 'android'
+        systemProperty 'deviceHost', 'local'
+    }
