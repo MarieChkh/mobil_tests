@@ -20,12 +20,12 @@ public class AndroidSimpleTests extends TestBase {
 
     @Test
     void searchTest() {
-        step("Open page and initiate searching", () -> {
+        step("Открытие страницы и начало поиска", () -> {
             $(accessibilityId("Search Wikipedia")).click();
             $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("One Piece");
         });
 
-        step("Verify content found", () ->
+        step("Проверка найденного содержимого", () ->
                 $$(id("org.wikipedia.alpha:id/page_list_item_title"))
                         .shouldHave(sizeGreaterThan(0)));
 

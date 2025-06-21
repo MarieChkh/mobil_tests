@@ -21,12 +21,12 @@ public class IosSimpleTests extends tests.TestBase {
 
     @Test
     void searchTest() {
-        step("Open page and initiate searching", () -> {
+        step("Открытие страницы и начало поиска", () -> {
             $(accessibilityId("Text Button")).click();
             $(accessibilityId("Text Input")).sendKeys("One Piece" + "\n");
         });
 
-        step("Verify content found", () ->
+        step("Проверка найденного содержимого", () ->
                 $$(accessibilityId("Text Output"))
                         .shouldHave(sizeGreaterThan(0)));
     }
