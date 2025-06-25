@@ -1,17 +1,14 @@
 package tests;
-
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-
+import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static io.appium.java_client.AppiumBy.accessibilityId;
+import static io.appium.java_client.AppiumBy.*;
 import static io.qameta.allure.Allure.step;
 
-@Tag("ios")
-public class IosSimpleTests extends tests.TestBase {
+@Tag("ios_browserstack")
+public class IosSimpleTest extends TestBase {
 
     @BeforeAll
     static void setup() {
@@ -20,13 +17,13 @@ public class IosSimpleTests extends tests.TestBase {
     }
 
     @Test
-    void searchTest() {
-        step("Открытие страницы и начало поиска", () -> {
+    void openSelenideTest() {
+        step("Type search", () -> {
             $(accessibilityId("Text Button")).click();
-            $(accessibilityId("Text Input")).sendKeys("One Piece" + "\n");
+            $(accessibilityId("Text Input")).sendKeys("Selenide" + "\n");
         });
 
-        step("Проверка найденного содержимого", () ->
+        step("Verify content found", () ->
                 $$(accessibilityId("Text Output"))
                         .shouldHave(sizeGreaterThan(0)));
     }

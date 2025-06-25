@@ -15,39 +15,37 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
-        @BeforeAll
-        static void beforeAll() {
-            String deviceHost = System.getProperty("deviceHost", "local");
+    @BeforeAll
+    static void beforeAll() {
+        String deviceHost = System.getProperty("deviceHost", "local");
 
-            if (deviceHost.equals("browserstack")) {
-                Configuration.browser = BrowserStackDriver.class.getName();
-            } else {
-                Configuration.browser = LocalDriver.class.getName();
-            }
-
-            Configuration.browserSize = null;
-            Configuration.timeout = 30000;
+        if (deviceHost.equals("browserstack")) {
+            Configuration.browser = BrowserStackDriver.class.getName();
+        } else {
+            Configuration.browser = LocalDriver.class.getName();
         }
 
-        @BeforeEach
-        void beforeEach() {
-            SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-            open();
-        }
-
-        @AfterEach
-        void addAttachments() {
-            String deviceHost = System.getProperty("deviceHost", "local");
-            String sessionId = Selenide.sessionId().toString();
-
-
-            //        Attach.screenshotAs("Last screenshot"); // todo fix
-            Attach.pageSource();
-
-            if (deviceHost.equals("browserstack")) {
-                Attach.addVideo(sessionId);
-            }
-
-            closeWebDriver();
-        }
+        Configuration.browserSize = null;
+        Configuration.timeout = 30000;
     }
+
+    @BeforeEach
+    void beforeEach() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+        open();
+    }
+
+    @AfterEach
+    void addAttachments() {
+        String deviceHost = System.getProperty("deviceHost", "local");
+        String sessionId = Selenide.sessionId().toString();
+
+        Attach.pageSource();
+
+        if (deviceHost.equals("browserstack")) {
+            Attach.addVideo(sessionId);
+        }
+
+        closeWebDriver();
+    }
+}
