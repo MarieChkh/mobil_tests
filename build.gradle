@@ -54,25 +54,26 @@ tasks.withType(Test).configureEach {
         }
     }
 }
-tasks.register('android', Test) {
+tasks.register('android_local', Test) {
     useJUnitPlatform {
-        includeTags 'android'
+        includeTags 'android_local'
+    }
+    systemProperty 'platform', 'android'
+    systemProperty 'deviceHost', 'local'
+}
+
+tasks.register('android_browserstack', Test) {
+    useJUnitPlatform {
+        includeTags 'android_browserstack'
     }
     systemProperty 'platform', 'android'
     systemProperty 'deviceHost', 'browserstack'
 }
 
-tasks.register('ios', Test) {
+tasks.register('ios_browserstack', Test) {
     useJUnitPlatform {
-        includeTags 'ios'
+        includeTags 'ios_browserstack'
     }
     systemProperty 'platform', 'ios'
     systemProperty 'deviceHost', 'browserstack'
 }
-    tasks.register('android_local', Test) {
-        useJUnitPlatform {
-            includeTags 'android_local'
-        }
-        systemProperty 'platform', 'android'
-        systemProperty 'deviceHost', 'local'
-    }

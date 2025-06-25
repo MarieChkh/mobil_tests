@@ -9,8 +9,8 @@ import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static io.appium.java_client.AppiumBy.*;
 import static io.qameta.allure.Allure.step;
 
-@Tag("android")
-public class AndroidSimpleTests extends TestBase {
+@Tag("android_browserstack")
+public class AndroidSimpleTest extends TestBase {
 
     @BeforeAll
     static void setup() {
@@ -19,13 +19,13 @@ public class AndroidSimpleTests extends TestBase {
     }
 
     @Test
-    void searchTest() {
-        step("Открытие страницы и начало поиска", () -> {
+    void openSelenideTest() {
+        step("Type search", () -> {
             $(accessibilityId("Search Wikipedia")).click();
-            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("One Piece");
+            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Selenide");
         });
 
-        step("Проверка найденного содержимого", () ->
+        step("Verify content found", () ->
                 $$(id("org.wikipedia.alpha:id/page_list_item_title"))
                         .shouldHave(sizeGreaterThan(0)));
 

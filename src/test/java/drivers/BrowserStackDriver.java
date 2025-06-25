@@ -36,7 +36,7 @@ public class BrowserStackDriver implements WebDriverProvider {
             caps.setCapability("app", config.app());
         }
 
-        caps.setCapability("project", "First Java Project");
+        caps.setCapability("project", "Wiki Project");
         caps.setCapability("build", "browserstack-build-1");
         caps.setCapability("name", "first_test");
 
