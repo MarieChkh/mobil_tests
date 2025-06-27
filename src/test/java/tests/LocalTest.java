@@ -1,23 +1,33 @@
 package tests;
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
+import static io.appium.java_client.AppiumBy.accessibilityId;
 import static io.qameta.allure.Allure.step;
 
-@Tag("android_browserstack")
-public class BrowserstackOnboardingTest extends TestBase {
+@Tag("android_local")
+public class LocalTest extends TestBase {
+    @Test
+    @DisplayName("Проверка поиска")
+    void openSelenideTest() {
+        step("Type search", () -> {
+            $(accessibilityId("Text Button")).click();
+            $(accessibilityId("Text Input")).sendKeys("Selenide" + "\n");
+        });
 
-    @BeforeAll
-    static void setup() {
-        System.setProperty("app", "bs://1bb42beb49de29f59bd2b394b41a732e932e7427");
+        step("Verify content found", () ->
+                $$(accessibilityId("Text Output"))
+                        .shouldHave(sizeGreaterThan(0)));
     }
 
     @Test
+    @DisplayName("Проверка онбодинга")
     void completeOnboardingScreens() {
         step("Проверка первого экрана онбординга", () -> {
             $(By.id("org.wikipedia.alpha:id/primaryTextView"))
