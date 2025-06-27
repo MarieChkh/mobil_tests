@@ -7,7 +7,6 @@
 
 - <a href="#tools">Технологии и инструменты</a>
 - <a href="#checking">Тестовые сценарии, реализованные в автоматизированных тест-кейсах</a>
-- <a href="#jenkins">Сборка в Jenkins</a>
 - <a href="#console">Запуск тестов (Из терминала)</a>
 - <a href="#allureReport">Allure-отчет</a>
 - <a href="#allure">Интеграция с Allure TestOps</a>
@@ -68,10 +67,9 @@
 
 ### Локальный запуск (через эмулятор)
 
-> Для запуска локальных тестов требуются следующие установленные программы на компьютере: Appium Server, Appium и Android Studio
-<p align="center">  
-<img title="AppiumService" src="media/logo/Appium.svg" width="850">  
-</p>
+```bash
+gradle clean android_local_test
+```
 
 ### Удаленный запуск (через browserstack)
 
