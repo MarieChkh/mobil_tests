@@ -37,7 +37,7 @@ public class AndroidSimpleTest extends TestBase {
     }
     @Test
     @DisplayName("Проверка онбодинга")
-    void completeOnboardingScreens() {
+    void androidOnboardingScreens() {
         step("Проверка первого экрана онбординга", () -> {
             $(By.id("org.wikipedia.alpha:id/primaryTextView"))
                     .shouldHave(text("The Free Encyclopedia"));

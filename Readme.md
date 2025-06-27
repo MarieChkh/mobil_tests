@@ -27,7 +27,7 @@
   <a href="https://selenide.org/"><img alt="Selenide" src="media/logo/Selenide.svg" width="50" height="50"></a>
   <a href="https://aerokube.com/selenoid/"><img alt="Selenoid" src="media/logo/Selenoid.svg" width="50" height="50"></a>
   <a href="https://www.browserstack.com/"><img alt="BrowserStack" src="media/logo/Browserstack.svg" width="50" height="50"></a>
-  <a href="https://developer.android.com/studio"><img alt="Android Studio" src="media/logo/android-studio.png" style="width:50px; height:50px;"/></a>
+  <a href="https://developer.android.com/studio"><img alt="Android Studio" src="media/logo/androidstudio.svg" style="width:50px; height:50px;"/></a>
   <a href="https://www.jenkins.io/"><img alt="Jenkins" src="media/logo/Jenkins.svg" width="50" height="50"></a>
   <a href="https://github.com/allure-framework/"><img alt="Allure Report" src="media/logo/Allure.svg" width="50" height="50"></a>
   <a href="https://qameta.io/"><img alt="Allure TestOps" src="media/logo/Allure_TO.svg" width="50" height="50"></a>
@@ -47,7 +47,7 @@
 - :white_check_mark: Проверка функции поиска в Википедии
 ---
 
-- Тесты в данном проекте написаны на языке <code>Java</code> с использованием фреймворка для тестирования [Selenide](https://selenide.org/), c применением паттерна Page Object.
+- Тесты в данном проекте написаны на языке <code>Java</code> с использованием фреймворка для тестирования [Selenide](https://selenide.org/)
 - Сборщик - <code>Gradle</code>.
 - <code>JUnit 5</code> задействован в качестве фреймворка модульного тестирования.
 - При прогоне тестов для запуска используется [Android Studio](https://developer.android.com/), [Browserstack](https://www.browserstack.com/), драйвер Appium.
@@ -58,7 +58,7 @@
 ## <img src="media/logo/Jenkins.svg" width="25" height="25"/> Сборка в [Jenkins](https://jenkins.autotests.cloud/job/021-Melnikov-Wikipedia_mobile_autotests/)
 
 <p align="center">
-<img src="media/screen/" alt="Jenkins Page" width="1000" height="350">
+<img src="media/screen/jenkinsscreen.PNG" alt="Jenkins Page" width="1000" height="350">
 </p>
 
 ---
@@ -68,37 +68,16 @@
 
 ### Локальный запуск (через эмулятор)
 
-```bash
-gradle clean local_test -Dhost=local
-```
-
 > Для запуска локальных тестов требуются следующие установленные программы на компьютере: Appium Server, Appium и Android Studio
 <p align="center">  
-<img title="AppiumService" src="media/screen/" width="850">  
+<img title="AppiumService" src="media/logo/Appium.svg" width="850">  
 </p>
 
 ### Удаленный запуск (через browserstack)
 
 ```bash
-gradle clean browserstack_test -Dhost=browserstack
+gradle clean andoid_browserstack_test clean ios_browserstack_test
 ```
-
----
-
-<a id="allureReport"></a>
-## <img alt="Allure" height="25" src="media/logo/Allure.svg" width="25"/> </a>Интеграция с <a target="_blank" href="https://jenkins.autotests.cloud/job/021-Melnikov-Wikipedia_mobile_autotests/allure/">Allure Report</a>
-
-## 🖨️ Основная страница отчёта
-
-<p align="center">  
-<img title="Allure Overview Dashboard" src="media/screen/" width="850">  
-</p>  
-
-## 📄 Тест-кейсы
-
-<p align="center">  
-<img title="Allure Tests" src="media/screen/" width="850">   
-</p>
 
 ---
 
@@ -108,15 +87,8 @@ gradle clean browserstack_test -Dhost=browserstack
 ## 🖨️ Основная страница отчёта
 
 <p align="center">  
-<img title="Allure TestOps Dashboard" src="media/screen/" width="850">  
+<img title="Allure TestOps Dashboard" src="media/screen/testopsscreen.PNG" width="850">  
 </p>  
-
-## 📄 Авто и Ручные тест-кейсы
-
-<p align="center">  
-<img title="Allure Tests" src="media/screen/allure_to_manual.png" width="850">  
-</p>
-
 
 ---
 
@@ -126,7 +98,7 @@ gradle clean browserstack_test -Dhost=browserstack
 ### Уведомление через чат бот
 
 <p align="center">
-<img src="media/screen/" alt="Telegram" width="500" height="400">
+<img src="media/screen/TgScreen.jpeg" alt="Telegram" width="500" height="400">
 </p>
 
 

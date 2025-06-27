@@ -24,7 +24,7 @@ public class IosSimpleTest extends TestBase {
 
     @Test
     @DisplayName("Проверка поиска")
-    void openSelenideTest() {
+    void openTest() {
         step("Type search", () -> {
             $(accessibilityId("Text Button")).click();
             $(accessibilityId("Text Input")).sendKeys("Selenide" + "\n");
@@ -48,7 +48,7 @@ public class IosSimpleTest extends TestBase {
     }
     @Test
     @DisplayName("Проверка онбодинга")
-    void completeOnboardingScreens() {
+    void iosOnboardingScreens() {
         step("Проверка первого экрана онбординга", () -> {
             $(By.id("org.wikipedia.alpha:id/primaryTextView"))
                     .shouldHave(text("The Free Encyclopedia"));
