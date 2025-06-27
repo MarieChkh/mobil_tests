@@ -15,7 +15,7 @@ import static io.qameta.allure.Allure.step;
 public class LocalTest extends TestBase {
     @Test
     @DisplayName("Проверка поиска")
-    void openSelenideTest() {
+    void openSelenideLocalTest() {
         step("Type search", () -> {
             $(accessibilityId("Text Button")).click();
             $(accessibilityId("Text Input")).sendKeys("Selenide" + "\n");
