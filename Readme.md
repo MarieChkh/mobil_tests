@@ -1,5 +1,5 @@
 # Проект по автоматизации mobile тестов для приложения [Wikipedia](https://ru.wikipedia.org/)
-<p align="center"><a href="https://ru.wikipedia.org/"><img src="media/logo/WikiLogo.png" align="center" width="500" height="300" alt="Wiki"/></a></p>  
+<p align="center"><a href="https://ru.wikipedia.org/"><img src="media/logo/WikiLogo.png" align="center" width="150" height="150" alt="Wiki"/></a></p>  
 
 > Википедия - общедоступная многоязычная универсальная интернет-энциклопедия со свободным контентом, реализованная на принципах вики.
 
@@ -85,14 +85,15 @@ gradle clean andoid_browserstack_test clean ios_browserstack_test
 ## 🖨️ Основная страница отчёта
 
 <p align="center">  
-<img title="Allure TestOps Dashboard" src="media/screen/testopsscreen.PNG" width="850">  
-</p>  
+<img title="Allure TestOps Dashboard" src="media/screen/testopsscreen.PNG" width="850" height="350">  
+</p>
 
 ##  Добавление ручных тестов
 
 <p align="center">  
-<img title="Allure TestOps Dashboard" src="media/screen/manuel.PNG" width="850">  
-</p>  
+<img title="Allure TestOps Dashboard" src="media/screen/manuel.PNG" width="500" height="350">  
+</p>
+
 ---
 
 <a id="teleg"></a>
@@ -101,7 +102,7 @@ gradle clean andoid_browserstack_test clean ios_browserstack_test
 ### Уведомление через чат бот
 
 <p align="center">
-<img src="media/screen/TgScreen.jpeg" alt="Telegram" width="500" height="400">
+<img src="media/screen/TgScreen.jpeg" alt="Telegram" width="500" height="350">
 </p>
 
 
