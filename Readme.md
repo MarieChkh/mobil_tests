@@ -85,13 +85,13 @@ gradle clean andoid_browserstack_test clean ios_browserstack_test
 ## 🖨️ Основная страница отчёта
 
 <p align="center">  
-<img title="Allure TestOps Dashboard" src="media/screen/testopsscreen.PNG" width="550">  
+<img title="Allure TestOps Dashboard" src="media/screen/testopsscreen.PNG" width="350">  
 </p>
 
 ##  Добавление ручных тестов
 
 <p align="center">  
-<img title="Allure TestOps Dashboard" src="media/screen/manuel.PNG" width="550">  
+<img title="Allure TestOps Dashboard" src="media/screen/manuel.PNG" width="350">  
 </p>
 
 ---
@@ -102,7 +102,7 @@ gradle clean andoid_browserstack_test clean ios_browserstack_test
 ### Уведомление через чат бот
 
 <p align="center">
-<img src="media/screen/TgScreen.jpeg" alt="Telegram" width="550">
+<img src="media/screen/TgScreen.jpeg" alt="Telegram" width="350">
 </p>
 
 
@@ -122,5 +122,5 @@ gradle clean andoid_browserstack_test clean ios_browserstack_test
 
 
 <p align="center">
-<img title="Browserstack Video" src="media/screen/video (3).gif" width="550" height="350"  alt="video">   
+<img title="Browserstack Video" src="media/screen/video (3).gif" width="350" height="550"  alt="video">   
 </p>
