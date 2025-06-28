@@ -1,5 +1,5 @@
 # Проект по автоматизации mobile тестов для приложения [Wikipedia](https://ru.wikipedia.org/)
-<p align="center"><a href="https://ru.wikipedia.org/"><img src="media/logo/WikiLogo.png" align="center" width="150" height="150" alt="Wiki"/></a></p>  
+<p align="center"><a href="https://ru.wikipedia.org/"><img src="media/logo/WikiLogo.png" align="center" width="175" alt="Wiki"/></a></p>  
 
 > Википедия - общедоступная многоязычная универсальная интернет-энциклопедия со свободным контентом, реализованная на принципах вики.
 
@@ -57,7 +57,7 @@
 ## <img src="media/logo/Jenkins.svg" width="25" height="25"/> Сборка в [Jenkins](https://jenkins.autotests.cloud/job/021-Melnikov-Wikipedia_mobile_autotests/)
 
 <p align="center">
-<img src="media/screen/jenkinsscreen.PNG" alt="Jenkins Page" width="1000" height="350">
+<img src="media/screen/jenkinsscreen.PNG" alt="Jenkins Page" width="950">
 </p>
 
 ---
@@ -85,13 +85,13 @@ gradle clean andoid_browserstack_test clean ios_browserstack_test
 ## 🖨️ Основная страница отчёта
 
 <p align="center">  
-<img title="Allure TestOps Dashboard" src="media/screen/testopsscreen.PNG" width="850" height="350">  
+<img title="Allure TestOps Dashboard" src="media/screen/testopsscreen.PNG" width="550">  
 </p>
 
 ##  Добавление ручных тестов
 
 <p align="center">  
-<img title="Allure TestOps Dashboard" src="media/screen/manuel.PNG" width="500" height="350">  
+<img title="Allure TestOps Dashboard" src="media/screen/manuel.PNG" width="550">  
 </p>
 
 ---
@@ -102,7 +102,7 @@ gradle clean andoid_browserstack_test clean ios_browserstack_test
 ### Уведомление через чат бот
 
 <p align="center">
-<img src="media/screen/TgScreen.jpeg" alt="Telegram" width="500" height="350">
+<img src="media/screen/TgScreen.jpeg" alt="Telegram" width="550">
 </p>
 
 
@@ -122,5 +122,5 @@ gradle clean andoid_browserstack_test clean ios_browserstack_test
 
 
 <p align="center">
-<img title="Browserstack Video" src="media/screen/video (3).gif" width="350" height="350"  alt="video">   
+<img title="Browserstack Video" src="media/screen/video (3).gif" width="550" height="350"  alt="video">   
 </p>
