@@ -1,5 +1,5 @@
 # Проект по автоматизации mobile тестов для приложения [Wikipedia](https://ru.wikipedia.org/)
-<p align="center"><a href="https://ru.wikipedia.org/"><img src="media/logo/WikiLogo.png" align="center" width="500" height="300" alt="Wiki"/></a></p>  
+<p align="center"><a href="https://ru.wikipedia.org/"><img src="media/logo/WikiLogo.png" align="center" width="150" height="150" alt="Wiki"/></a></p>  
 
 > Википедия - общедоступная многоязычная универсальная интернет-энциклопедия со свободным контентом, реализованная на принципах вики.
 
