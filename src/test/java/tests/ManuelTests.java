@@ -11,7 +11,7 @@ import static io.qameta.allure.Allure.step;
 public class ManuelTests {
     @Test
     @AllureId("123456")
-    @DisplayName("Википедия карта")
+    @DisplayName("Википедия карта поиск Москвы")
     public void carttesting() {
         step("Открываем приложние");
         step("Открываем главную страницу");
