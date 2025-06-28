@@ -88,6 +88,11 @@ gradle clean andoid_browserstack_test clean ios_browserstack_test
 <img title="Allure TestOps Dashboard" src="media/screen/testopsscreen.PNG" width="850">  
 </p>  
 
+##  Добавление ручных тестов
+
+<p align="center">  
+<img title="Allure TestOps Dashboard" src="media/screen/manuel.PNG" width="850">  
+</p>  
 ---
 
 <a id="teleg"></a>
