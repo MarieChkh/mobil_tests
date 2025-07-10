@@ -54,7 +54,7 @@
 ---
 
 <a id="jenkins"></a>
-## <img src="media/logo/Jenkins.svg" width="25" height="25"/> Сборка в [Jenkins](https://jenkins.autotests.cloud/job/021-Melnikov-Wikipedia_mobile_autotests/)
+## <img src="media/logo/Jenkins.svg" width="25" height="25"/> Сборка в [Jenkins](https://jenkins.autotests.cloud/job/mobile_tests/)
 
 <p align="center">
 <img src="media/screen/jenkinsscreen.PNG" alt="Jenkins Page" width="950">
