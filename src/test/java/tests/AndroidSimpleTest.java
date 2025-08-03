@@ -1,20 +1,17 @@
 package tests;
 
+import ScreenObjects.MainPage;
+import ScreenObjects.ResultSearchPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-
-import static com.codeborne.selenide.Condition.enabled;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static io.appium.java_client.AppiumBy.*;
 import static io.qameta.allure.Allure.step;
 
 @Tag("android_browserstack")
 public class AndroidSimpleTest extends TestBase {
+    MainPage mainPage = new MainPage();
+    ResultSearchPage resultSearchPage = new ResultSearchPage();
 
     @BeforeAll
     static void setup() {
@@ -26,44 +23,37 @@ public class AndroidSimpleTest extends TestBase {
     @DisplayName("Проверка поиска")
     void openSelenideTest() {
         step("Type search", () -> {
-            $(accessibilityId("Search Wikipedia")).click();
-            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Selenide");
+            mainPage.search();
+            mainPage.setSearchText();
         });
 
-        step("Verify content found", () ->
-                $$(id("org.wikipedia.alpha:id/page_list_item_title"))
-                        .shouldHave(sizeGreaterThan(0)));
+        step("Verify content found", () -> {
+            resultSearchPage.checkResultSearch();
 
+        });
     }
+
     @Test
     @DisplayName("Проверка онбодинга")
     void androidOnboardingScreens() {
         step("Проверка первого экрана онбординга", () -> {
-            $(By.id("org.wikipedia.alpha:id/primaryTextView"))
-                    .shouldHave(text("The Free Encyclopedia"));
-            $(By.id("org.wikipedia.alpha:id/fragment_onboarding_forward_button"))
-                    .click();
+           mainPage.freeEncyclopedia();
+           mainPage.farwordbuttonclick();
         });
 
         step("Проверка второго экрана онбординга", () -> {
-            $(By.id("org.wikipedia.alpha:id/primaryTextView"))
-                    .shouldHave(text("New ways to explore"));
-            $(By.id("org.wikipedia.alpha:id/fragment_onboarding_forward_button"))
-                    .shouldBe(enabled)
-                    .click();
+            mainPage.newwaystoexplore();
+            mainPage.farwordbuttonclick();
         });
 
         step("Проверка третьего экрана онбординга", () -> {
-            $(By.id("org.wikipedia.alpha:id/primaryTextView"))
-                    .shouldHave(text("Reading lists with sync"));
-            $(By.id("org.wikipedia.alpha:id/fragment_onboarding_forward_button"))
-                    .shouldBe(enabled)
-                    .click();
+            mainPage.readinglists();
+            mainPage.farwordbuttonclick();
         });
 
         step("Проверка четвертого экрана онбординга", () -> {
-            $(By.id("org.wikipedia.alpha:id/primaryTextView"))
-                    .shouldHave(text("Data & Privacy"));
+            mainPage.dataprivacy();
+            mainPage.farwordbuttonclick();
         });
     }
 }

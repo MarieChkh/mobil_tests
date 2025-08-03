@@ -1,32 +1,31 @@
+
 package config;
 
 import org.aeonbits.owner.Config;
 
+import java.net.URL;
+
 @Config.Sources({
-        "classpath:browser_stack.properties"
+        "classpath:browserstack.properties"
 })
+
 public interface BrowserstackConfig extends Config {
-    @Key("browserstack.user")
-    String user();
 
-    @Key("browserstack.key")
-    String key();
+    @Key("os")
+    String getOs();
 
-    @Key("browserstack.url")
-    String url();
+    @Key("device")
+    String getDevice();
 
-    @Key("browserstack.app")
-    String app();
+    @Key("os_version")
+    String getOsVersion();
 
-    @Key("device.android")
-    String androidDevice();
+    @Key("app")
+    String getApp();
 
-    @Key("os.android")
-    String androidOsVersion();
+    @Key("remoteUrl")
+    URL getRemoteUrl();
 
-    @Key("device.ios")
-    String iosDevice();
-
-    @Key("os.ios")
-    String iosOsVersion();
+    @Key("build")
+    String getBuild();
 }
