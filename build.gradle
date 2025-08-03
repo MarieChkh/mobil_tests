@@ -3,32 +3,27 @@ plugins {
     id 'io.qameta.allure' version '2.11.2'
 }
 
-group = 'viktalina'
-version = '1.0-SNAPSHOT'
-
 repositories {
     mavenCentral()
 }
 
-compileJava {
-    options.encoding = 'UTF-8'
-}
-compileTestJava{
-    options.encoding = 'UTF-8'
-}
-
-def restAssuredVersion = "5.5.5",
-    allureVersion = "2.21.0"
+def aspectjWeaverVersion = "1.9.22",
+    selenideVersion = "6.13.0",
+    restAssuredVersion = "5.3.0",
+    allureVersion = "2.21.0",
+    junitVersion = "5.9.3",
+    slf4jVersion = "2.0.7",
+    ownerVersion = "1.0.12"
 
 allure {
     report {
-        version.set(allureVersion)
+        version = allureVersion
     }
     adapter {
-        aspectjWeaver.set(true)
+        aspectjWeaver = true
         frameworks {
             junit5 {
-                adapterVersion.set(allureVersion)
+                adapterVersion = allureVersion
             }
         }
     }
@@ -36,52 +31,49 @@ allure {
 
 dependencies {
     testImplementation(
-            "com.codeborne:selenide:6.13.0",
-            "io.rest-assured:rest-assured:$restAssuredVersion",
+            "org.aspectj:aspectjweaver:$aspectjWeaverVersion",
+            'com.codeborne:selenide:' + selenideVersion,
+            "io.qameta.allure:allure-selenide:$allureVersion",
             "io.appium:java-client:8.3.0",
-            "commons-io:commons-io:2.11.0",
-            "io.qameta.allure:allure-rest-assured:$allureVersion",
-            "org.junit.jupiter:junit-jupiter:5.10.0",
-            "org.aeonbits.owner:owner:1.0.12",
-            "io.qameta.allure:allure-selenide:2.19.0",
-            "org.slf4j:slf4j-simple:2.0.16"
+            'io.rest-assured:rest-assured:' + restAssuredVersion,
+            "org.junit.jupiter:junit-jupiter:$junitVersion",
+            "org.slf4j:slf4j-simple:$slf4jVersion",
+            "org.aeonbits.owner:owner:$ownerVersion"
     )
+    testRuntimeOnly(
+            "org.junit.platform:junit-platform-launcher")
 }
 
-tasks.withType(Test) {
-
-    systemProperties(System.getProperties())
-
+tasks.withType(Test).configureEach {
     useJUnitPlatform()
 
     testLogging {
         lifecycle {
-            events "started", "skipped", "failed", "standardOut", "standardError"
+            events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
     }
 }
-
-task all_android_tests(type: Test) {
+tasks.register('android_local_test', Test) {
     useJUnitPlatform {
-        includeTags("all_android_tests")
+        includeTags 'android_local'
     }
+    systemProperty 'platform', 'android'
+    systemProperty 'deviceHost', 'local'
 }
 
-task open_article_tests(type: Test) {
+tasks.register('android_browserstack_test', Test) {
     useJUnitPlatform {
-        includeTags("open_article_tests")
+        includeTags 'android_browserstack'
     }
+    systemProperty 'platform', 'android'
+    systemProperty 'deviceHost', 'browserstack'
 }
 
-task get_started_screens_tests(type: Test) {
+tasks.register('ios_browserstack_test', Test) {
     useJUnitPlatform {
-        includeTags("get_started_screens_tests")
+        includeTags 'ios_browserstack'
     }
-}
-
-task search_article_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags("search_article_tests")
-    }
+    systemProperty 'platform', 'ios'
+    systemProperty 'deviceHost', 'browserstack'
 }

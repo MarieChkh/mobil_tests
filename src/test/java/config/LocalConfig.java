@@ -1,17 +1,31 @@
-
 package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources({
-        "classpath:localEmulator.properties"
-})
 
+@Config.Sources({
+        "classpath:local.properties"
+})
 public interface LocalConfig extends Config {
 
-    @Key("platformVersion")
-    String getPlatformVersion();
-
     @Key("deviceName")
-    String getDeviceName();
+    String deviceName();
+
+    @Key("platformVersion")
+    String platformVersion();
+
+    @Key("appPackage")
+    String appPackage();
+
+    @Key("appActivity")
+    String appActivity();
+
+    @Key("appium.url")
+    String appiumUrl();
+
+    @Key("app")
+    String appPath();
+
+    @Key("automation.name")
+    String automationName();
 }
